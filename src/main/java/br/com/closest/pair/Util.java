@@ -12,12 +12,22 @@ public class Util {
 		return Math.sqrt((xdist * xdist) + (ydist * ydist));
 	}
 
-	public static void divideInOrder(List<Point> xR, List<Point> y,
+	public static void divideInOrder(List<Point> xR,List<Point> xL, List<Point> y,
 			List<Point> yR, List<Point> yL) {
+		
+		for (int i=0;i<xR.size();i++){
+			xR.get(i).right = true;
+			xR.get(i).left = false;
+		}
+		
+		for (int i=0;i<xL.size();i++){
+			xL.get(i).right = false;
+			xL.get(i).left = true;
+		}
+		
 		int yLength = y.size();
-		Comparator<Point> auxComp = new ByXComparator();
 		for (int i = 0; i < yLength; i++) {
-			if (Collections.binarySearch(xR, y.get(i), auxComp) >= 0) {
+			if (y.get(i).right) {
 				yR.add(y.get(i));
 			} else {
 				yL.add(y.get(i));

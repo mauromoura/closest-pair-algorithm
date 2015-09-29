@@ -24,7 +24,7 @@ public class DivideAndConquer {
 		List<Point> leftOfCenterY = new ArrayList<Point>();
 		List<Point> rightOfCenterY = new ArrayList<Point>();
 
-		divideInOrder(rightOfCenterX, pointsSortedByY, rightOfCenterY,
+		divideInOrder(rightOfCenterX,leftOfCenterX, pointsSortedByY, rightOfCenterY,
 				leftOfCenterY);
 
 		Pair closestPair = divideAndConquer(leftOfCenterX, leftOfCenterY);
