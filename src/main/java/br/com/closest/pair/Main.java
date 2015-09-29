@@ -12,7 +12,7 @@ import java.util.Random;
 public class Main {
 	
 	public static void main(String[] args) {
-		for (int i =4 ; i< 30000 ; i+=200){
+		for (int i =10 ; i< 11000 ; i+=100){
 			calculate(new String [] {String.valueOf(i)});
 		}
 	}
@@ -30,12 +30,11 @@ public class Main {
 		long elapsedTime = System.currentTimeMillis() - startTime;
 		System.out.print(elapsedTime + ";");
 		
+		startTime = System.currentTimeMillis();
 		List<Point> pointsSortedByX = new ArrayList<Point>(points);
 		sortByX(pointsSortedByX);
 		List<Point> pointsSortedByY = new ArrayList<Point>(points);
 		sortByY(pointsSortedByY);
-		
-		startTime = System.currentTimeMillis();
 		Pair dqClosestPair = divideAndConquer(pointsSortedByX, pointsSortedByY);
 		elapsedTime = System.currentTimeMillis() - startTime;
 		System.out.println(elapsedTime);
